@@ -38,7 +38,7 @@ app.post("/add", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    if(typeof num1 === String || typeof num2 === String){
+    if(typeof num1 === "String" || typeof num2 === "String"){
         responseMessage.status = "error";
         responseMessage.message = "Invalid data types";
         responseMessage.sum = undefined;
@@ -87,7 +87,7 @@ app.post("/sub", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    if(typeof num1 === String || typeof num2 === String){
+    if(typeof num1 === "String" || typeof num2 === "String"){
         responseMessage.status = "error";
         responseMessage.message = "Invalid data types";
         responseMessage.difference = undefined;
@@ -136,7 +136,7 @@ app.post("/multiply", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    if(typeof num1 === String || typeof num2 === String){
+    if(typeof num1 === "String" || typeof num2 === "String"){
         responseMessage.status = "error";
         responseMessage.message = "Invalid data types";
         responseMessage.result = undefined;
@@ -192,7 +192,7 @@ app.post("/divide", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    if(typeof num1 === String || typeof num2 === String){
+    if(typeof num1 === "String" || typeof num2 === "String"){
         responseMessage.status = "error";
         responseMessage.message = "Invalid data types";
         responseMessage.result = undefined;
