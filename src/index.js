@@ -158,8 +158,8 @@ app.post("/multiply", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    responseMessage.status = "success";
-        responseMessage.message = "The product of given two numbers";
+        responseMessage.status = "success";
+        responseMessage.message = "The product of given numbers";
         responseMessage.result = (result);
         res.send(responseMessage);
 })
