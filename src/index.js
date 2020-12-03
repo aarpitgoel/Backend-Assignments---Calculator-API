@@ -45,7 +45,7 @@ app.post("/add", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    result = num1 + num2;
+    result = parseInt(num1) + parseInt(num2);
     if(result < -1000000){
         responseMessage.status = "error";
         responseMessage.message = "Underflow";
@@ -94,7 +94,7 @@ app.post("/sub", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    result = num1 - num2;
+    result = parseInt(num1) - parseInt(num2);
     if(result < -1000000){
         responseMessage.status = "error";
         responseMessage.message = "Underflow";
@@ -143,7 +143,7 @@ app.post("/multiply", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    result = num1 * num2;
+    result = parseInt(num1) * parseInt(num2);
     if(result < -1000000){
         responseMessage.status = "error";
         responseMessage.message = "Underflow";
@@ -199,7 +199,7 @@ app.post("/divide", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    result = num1/num2;
+    result = parseInt(num1) /  parseInt(num2);
     if(result < -1000000){
         responseMessage.status = "error";
         responseMessage.message = "Underflow";
