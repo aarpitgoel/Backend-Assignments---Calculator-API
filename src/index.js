@@ -120,7 +120,7 @@ app.post("/multiply", (req, res) => {
     let num2 = (req.body.num2);
     let result;
     let responseMessage = {};
-    if(parseFloat(num1)< -1000000 || parseFloat(num2) < -1000000){
+    if(parseFloat(num1) < -1000000 || parseFloat(num2) < -1000000){
         //result = num1 + num2;
         responseMessage.status = "error";
         responseMessage.message = "Underflow";
@@ -160,7 +160,7 @@ app.post("/multiply", (req, res) => {
     }
     responseMessage.status = "success";
         responseMessage.message = "The product of given two numbers";
-        responseMessage.difference = result;
+        responseMessage.result = result;
         res.send(responseMessage);
 })
 
@@ -216,7 +216,7 @@ app.post("/divide", (req, res) => {
     }
     responseMessage.status = "success";
         responseMessage.message = "The division of given numbers";
-        responseMessage.difference = result;
+        responseMessage.result = result;
         res.send(responseMessage);
 })
 
