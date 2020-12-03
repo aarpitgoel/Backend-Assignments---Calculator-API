@@ -116,8 +116,8 @@ app.post("/sub", (req, res) => {
 })
 
 app.post("/multiply", (req, res) => {
-    let num1 = req.body.num1;
-    let num2 = req.body.num2;
+    let num1 = parseFloat(req.body.num1);
+    let num2 = parseFloat(req.body.num2);
     let result;
     let responseMessage = {};
     if(num1< -1000000 || num2 < -1000000){
@@ -136,7 +136,7 @@ app.post("/multiply", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    if(typeof num1 === "string" || typeof num2 === "string"){
+    if(!isNaN(num1) || !isNaN(num2)){
         responseMessage.status = "error";
         responseMessage.message = "Invalid data types";
         responseMessage.result = undefined;
@@ -165,8 +165,8 @@ app.post("/multiply", (req, res) => {
 })
 
 app.post("/divide", (req, res) => {
-    let num1 = req.body.num1;
-    let num2 = req.body.num2;
+    let num1 = parseFloat(req.body.num1);
+    let num2 = parseFloat(req.body.num2);
     let result;
     let responseMessage = {};
     if(num2 === 0){
@@ -192,14 +192,14 @@ app.post("/divide", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    if(typeof num1 === "string" || typeof num2 === "string"){
-        responseMessage.status = "error";
+    if(!isNaN(num1) || !isNaN(num2)){
+        responseMessage.status = "failure";
         responseMessage.message = "Invalid data types";
         responseMessage.result = undefined;
         res.send(responseMessage);
         return;
     }
-    result = parseFloat(num1) / parseFloat(num2);
+    result = (num1) / (num2);
     if(result < -1000000){
         responseMessage.status = "error";
         responseMessage.message = "Underflow";
