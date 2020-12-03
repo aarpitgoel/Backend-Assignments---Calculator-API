@@ -199,7 +199,7 @@ app.post("/divide", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    result = (num1) / (num2);
+    result = parseFloat(num1) / parseFloat(num2);
     if(result < -1000000){
         responseMessage.status = "error";
         responseMessage.message = "Underflow";
