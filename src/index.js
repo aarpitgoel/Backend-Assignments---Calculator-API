@@ -120,7 +120,7 @@ app.post("/multiply", (req, res) => {
     let num2 = (req.body.num2);
     let result;
     let responseMessage = {};
-    if(num1< -1000000 || num2 < -1000000){
+    if(parseFloat(num1)< -1000000 || parseFloat(num2) < -1000000){
         //result = num1 + num2;
         responseMessage.status = "error";
         responseMessage.message = "Underflow";
@@ -128,7 +128,7 @@ app.post("/multiply", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    if(num1 > 1000000 || num2 > 1000000){
+    if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
         //result = num1 + num2;
         responseMessage.status = "error";
         responseMessage.message = "Overflow";
@@ -136,7 +136,7 @@ app.post("/multiply", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    if(typeof num1 === 'string' || typeof num2 === 'string'){
+    if(Number(num1) !== parseFloat(num1) || Number(num2) !== parseFloat(num2)){
         responseMessage.status = "failure";
         responseMessage.message = "Invalid data types";
         responseMessage.result = undefined;
@@ -169,14 +169,14 @@ app.post("/divide", (req, res) => {
     let num2 = (req.body.num2);
     let result;
     let responseMessage = {};
-    if(num2 === 0){
+    if(parseFloat(num2) === 0){
         responseMessage.status = "error";
         responseMessage.message = "Cannot divide by zero";
         responseMessage.result = undefined;
         res.send(responseMessage);
         return;
     }
-    if(num1< -1000000 || num2 < -1000000){
+    if(parseFloat(num1) < -1000000 || parseFloat(num2) < -1000000){
         //result = num1 + num2;
         responseMessage.status = "error";
         responseMessage.message = "Underflow";
@@ -184,7 +184,7 @@ app.post("/divide", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    if(num1 > 1000000 || num2 > 1000000){
+    if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
         //result = num1 + num2;
         responseMessage.status = "error";
         responseMessage.message = "Overflow";
@@ -192,7 +192,7 @@ app.post("/divide", (req, res) => {
         res.send(responseMessage);
         return;
     }
-    if(typeof num1 === 'string' || typeof num2 === 'string'){
+    if(Number(num1) !== parseFloat(num1) || Number(num2) !== parseFloat(num2)){
         responseMessage.status = "failure";
         responseMessage.message = "Invalid data types";
         responseMessage.result = undefined;
