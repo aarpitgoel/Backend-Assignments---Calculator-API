@@ -160,7 +160,7 @@ app.post("/multiply", (req, res) => {
     }
     responseMessage.status = "success";
         responseMessage.message = "The product of given two numbers";
-        responseMessage.result = parseInt(result);
+        responseMessage.result = (result);
         res.send(responseMessage);
 })
 
